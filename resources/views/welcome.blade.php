@@ -9,7 +9,7 @@ Welcome!
     <div class="row">
         <div class="col-md-6">
             <h3>Sign Up!</h3>
-            <form action="#" method="POST">
+            <form action="{{ route('signup') }}" method="POST">
                 <div class="form-group">
                     <label for"email"> E-Mail</label>
                     <input class="form-control"type="text" name="email" id="email">
@@ -17,21 +17,20 @@ Welcome!
                 </div>
 
                 <div class="form-group">
-                    <label for"email"> Name</label>
+                    <label for"name"> Name</label>
                     <input class="form-control"type="text" name="name" id="name">
                     
                 </div>
 
                 <div class="form-group">
-                    <label for"email">Password</label>
+                    <label for"password">Password</label>
                     <input class="form-control"type="password" name="password" id="password">
                     
                 </div>
 
                 <button type="submit" class="btn btn-primary">Sign Up</button>
 
-
-
+                    <input type="hidden" name="_token" value="{{ Session::token() }}">
             </form>
             
         </div>
@@ -45,7 +44,7 @@ Welcome!
                 </div>
 
                 <div class="form-group">
-                    <label for"email">Password</label>
+                    <label for"password">Password</label>
                     <input class="form-control"type="password" name="password" id="password">
                     
                 </div>
