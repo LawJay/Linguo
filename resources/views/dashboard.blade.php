@@ -17,11 +17,13 @@
 <section class="row posts">
 	<div class="col-md-6 col-md-offset-3">
 			<header><h3>What's new...</h3></header>
-			<article class="post">
-				<p> Example Text</p>
+
+				@foreach($posts as $post)
+				<article class="post">
+				<p>{{$post->body}}</p>
 
 				<div class="info">
-				<small> Posted by Jambo 13/08/2018</small>
+				<small> Posted by {{$post->user->name}} {{$post->created_at}}</small>
 				</div>
 				<div class="interaction">
 					<a href="#">Like</a>
@@ -29,6 +31,10 @@
 					<a href="#">Edit</a>
 					<a href="#">Delete</a>
 				</div>
+				</article>
+				@endforeach
+
+			
 
 	</div>
 </section>
