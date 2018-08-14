@@ -41,4 +41,10 @@ Route::group(['middleware' => ['web']],function(){
     'uses' => 'PostController@postEditPost',
     'as' => 'edit'
 ]);
+
+      Route::get('/online',[
+       'uses'=>'PagesController@online',
+       'as'=>'online']);
+
+  
 });
