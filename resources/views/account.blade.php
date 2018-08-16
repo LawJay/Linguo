@@ -30,7 +30,7 @@
             </div>
         </section>
         @else
-        <p> Image not found - Path = {{ route('account.image', ['name' => $user->name . '-' . $user->id . '.jpg']) }} </p>
-        <img src="{{ route('account.image', ['name' => $user->name . '-' . $user->id . '.jpg']) }}">
+       
+        <img height="50%" width="200px" src="{{ route('account.image', ['name' => $user->name . '-' . $user->id . '.jpg']) }}">
     @endif
 @endsection
