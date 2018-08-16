@@ -32,7 +32,7 @@ Route::post('/updateaccount', [
     'as' => 'account.save'
 ]);
 
-Route::get('userimage/{filename}', [
+Route::get('uploads/{filename}', [
     'uses' => 'UserController@getUserImage',
     'as' => 'account.image'
 ]);

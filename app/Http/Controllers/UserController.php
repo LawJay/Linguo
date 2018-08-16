@@ -83,7 +83,7 @@ class UserController extends Controller
 	public function getUserImage($filename)
 	{
 
-		$file = Storage::disk('public')->get($filename);
+		$file = Storage::disk('uploads')->get($filename);
 		return Storage::get($filename); 
 	}
 }

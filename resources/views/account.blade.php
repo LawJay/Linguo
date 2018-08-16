@@ -26,7 +26,11 @@
         <section class="row new-post">
             <div class="col-md-6 col-md-offset-3">
                 <img src="{{ route('account.image', ['name' => $user->name . '-' . $user->id . '.jpg']) }}">
+                <p>Success - Path = {{ route('account.image', ['name' => $user->name . '-' . $user->id . '.jpg']) }}</p>
             </div>
         </section>
+        @else
+        <p> Image not found - Path = {{ route('account.image', ['name' => $user->name . '-' . $user->id . '.jpg']) }} </p>
+        <img src="{{ route('account.image', ['name' => $user->name . '-' . $user->id . '.jpg']) }}">
     @endif
 @endsection
