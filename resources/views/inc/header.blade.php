@@ -24,7 +24,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Interests</a>
-          <a class="dropdown-item" href="/public/online">Languages</a>
+          <a class="dropdown-item" href="#">Languages</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{route('online')}}">Online Users</a>
         </div>
@@ -34,7 +34,10 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <a class="nav-link" href="{{route('account')}}">Account</a>
     <a class="nav-link" href="{{route('logout')}}">Logout</a>
+
+
   </div>
 </nav>
 	

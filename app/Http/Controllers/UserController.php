@@ -3,6 +3,9 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -50,6 +53,38 @@ class UserController extends Controller
 	public function getLogout(){
 		Auth::logout();
 		return redirect()->route('login');
+	}
+
+	public function getAccount()
+	{
+		return view('account', ['user' => Auth::user()]);
+	}
+
+	public function postSaveAccount(Request $request)
+	{
+        $this->validate($request, [
+           'name' => 'required|max:120'
+        ]);
+        $user = Auth::user();
+        
+        $user->name = $request['name'];
+        $user->update();
+        $file = $request->file('image');
+        $filename = $request['name'] . '-' . $user->id . '.jpg';
+        
+        if ($file) {
+            
+            Storage::disk('uploads')->put($filename, File::get($file));
+        }
+        
+        return redirect()->route('account');
+    }
+
+	public function getUserImage($filename)
+	{
+
+		$file = Storage::disk('public')->get($filename);
+		return Storage::get($filename); 
 	}
 }
 
