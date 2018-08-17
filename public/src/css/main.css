@@ -13,17 +13,29 @@ body{
 
 .posts .post {
 	padding-left: 10px;
+    border: solid #0F0F47;
 	border-left: 3px solid #a21b24
 	margin-bottom:30px;
+    background-color: #5EC4EC;
+    font-family: 'Ubuntu', sans-serif;
+    color: 0F0F47;
 }
 .post{
     
     
 }
 .posts .post .info {
-	color: #aaa;
+	color: #0F0F47;
 	font-style: italic;
     font-size: 10px;
+}
+
+.posts .post .interaction{
+    color: #ffffff;
+}
+
+.posts .post .interaction a{
+    color: #ffffff;
 }
 
 

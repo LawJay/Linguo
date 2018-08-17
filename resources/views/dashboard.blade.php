@@ -23,14 +23,7 @@
 	<div class="col-md-6 col-md-offset-3">
 			<header><h3>What's new...</h3></header>
 				 @foreach($posts as $post)
-                 <div class="card" style="
-                 background-color: #007b5e;
-                    width: 50%;
-                    color: blue;
-                    padding: 1px;
-                    
-
-                    ">
+                 <div class="card card-outline-primary">
                 <article class="post" data-postid="{{ $post->id }}">
                     
                     <p>{{ $post->body }}</p>
@@ -46,7 +39,7 @@
 					@if(Auth::user() == $post->user)
 					|
 
-					<a class="edit" data-toggle="modal" data-target="#edit-modal" href="#"><i class="material-icons">create</i></a>﻿
+					<a href="#" class="edit material-icons">create</a> |
 					<a href="{{route('post.delete', ['post_id' => $post->id])}}"><i class="material-icons">delete</i></a>
 					@endif
 					
