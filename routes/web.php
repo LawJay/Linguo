@@ -58,6 +58,11 @@ Route::get('uploads/{filename}', [
     'as' => 'edit'
 ]);
 
+   Route::post('/like', [
+    'uses' => 'PostController@postLikePost',
+    'as' => 'like'
+]);
+
     Route::get('/online',[
     'uses'=>'PagesController@online',
     'as'=>'online']);  

@@ -17,21 +17,23 @@
 <section class="row posts">
 	<div class="col-md-6 col-md-offset-3">
 			<header><h3>What's new...</h3></header>
-
 				 @foreach($posts as $post)
                 <article class="post" data-postid="{{ $post->id }}">
+                    
                     <p>{{ $post->body }}</p>
                     <div class="info">
                         Posted by {{ $post->user->first_name }} on {{ $post->created_at }}
 				</div>
 				<div class="interaction">
-					<a href="#">Like</a>
-					<a href="#">Dislike</a>
+                    
+					<a  class="like" href="#">Like</a>
+					<a  class="like" href="#">Dislike</a>
+                    
 
 					@if(Auth::user() == $post->user)
 					|
 
-						<a class="edit" data-toggle="modal" data-target="#edit-modal" href="#">Edit</a>﻿
+					<a class="edit" data-toggle="modal" data-target="#edit-modal" href="#">Edit</a>﻿
 					<a href="{{route('post.delete', ['post_id' => $post->id])}}">Delete</a>
 					@endif
 					
@@ -69,6 +71,7 @@
 
     <script >
     	var token = '{{ Session::token() }}';
-    	var url = '{{  route('edit') }}'
+    	var urlEdit = '{{  route('edit') }}'
+        var urlLike = '{{  route('like') }}'
     </script>
 @endsection
