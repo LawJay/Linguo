@@ -13,6 +13,8 @@
             
         </style>
         <link rel="stylesheet" type="text/css" href="{{ URL::to('src/css/main.css') }}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     </head>
     <body>
     	@include('inc.header')
