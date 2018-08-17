@@ -52,7 +52,46 @@
 			
 
 	</div>
+    <div class="col-md-6 col-md-offset-3">
+        <header><h3>Column Two</h3></header>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/He6UBkhAubg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <div class="container bootstrap snippet">
+  <div class="header">
+    <h3 class="text-muted prj-name">
+        <span class="fa fa-users fa-2x principal-title"></span>
+        Friends List
+    </h3>
+  </div>
+
+
+  <div class="jumbotron list-content">
+    <ul class="list-group">
+      <li href="#" class="list-group-item title">
+        Your Friends
+      </li>
+      <li href="#" class="list-group-item text-left">
+        <img class="img-thumbnail" src="https://bootdey.com/img/Content/User_for_snippets.png">
+        <label class="name">
+            Jamie Law<br>
+        </label>
+        <label class="pull-right">
+            <a  class="btn btn-success btn-xs glyphicon glyphicon-ok" href="#" title="View"></a>
+            <a  class="btn btn-danger  btn-xs glyphicon glyphicon-trash" href="#" title="Delete"></a>
+            <a  class="btn btn-info  btn-xs glyphicon glyphicon glyphicon-comment" href="#" title="Send message"></a>
+        </label>
+        <div class="break"></div>
+      </li>
+
+
+</div>
 </section>
+
+
+
+
+
+</div>
 
  <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
         <div class="modal-dialog">

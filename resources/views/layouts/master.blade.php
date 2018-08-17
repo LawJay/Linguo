@@ -16,7 +16,11 @@
         <link rel="stylesheet" type="text/css" href="{{ URL::to('src/css/main.css') }}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+
       <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+      <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     </head>
     <body>
     	@include('inc.header')
