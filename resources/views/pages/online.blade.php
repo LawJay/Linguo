@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('title')
+    Users Online now
+@endsection
 @section('content')
 @include('inc.message-block')
 <section id="team" class="pb-5">

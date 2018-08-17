@@ -1,4 +1,8 @@
 @extends('layouts.master')
+@section('title')
+    Dashboard
+@endsection
+
 
 @section('content')
 @include('inc.message-block')
@@ -19,27 +23,37 @@
 	<div class="col-md-6 col-md-offset-3">
 			<header><h3>What's new...</h3></header>
 				 @foreach($posts as $post)
+                 <div class="card" style="
+                 background-color: #007b5e;
+                    width: 50%;
+                    color: blue;
+                    padding: 1px;
+                    
+
+                    ">
                 <article class="post" data-postid="{{ $post->id }}">
                     
                     <p>{{ $post->body }}</p>
                     <div class="info">
-                        Posted by {{ $post->user->first_name }} on {{ $post->created_at }}
+                        Posted by {{ $post->user->name }} on {{ $post->created_at }}
 				</div>
 				<div class="interaction">
                     
-					 <a href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this' : 'Like' : 'Like'  }}</a> |
+					 <a  href="#" class="like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this' : 'Like' : 'Like'  }}</a> |
 					<a  class="like" : 'Like' href="#">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You don\'t like this' : 'Dislike' : 'Dislike'  }}</a>
                     
 
 					@if(Auth::user() == $post->user)
 					|
 
-					<a class="edit" data-toggle="modal" data-target="#edit-modal" href="#">Edit</a>﻿
+					<a class="edit" data-toggle="modal" data-target="#edit-modal" href="#"><i class="material-icons">create</i></a>﻿
 					<a href="{{route('post.delete', ['post_id' => $post->id])}}"><i class="material-icons">delete</i></a>
 					@endif
 					
 				</div>
 				</article>
+                </div>
+                <br>
 				@endforeach
 
 			
