@@ -6,7 +6,6 @@ Route::group(['middleware' => ['web']],function(){
        return view('welcome');
    })->name('login');
 
-
    Route::post('/signup',[
        'uses'=>'UserController@postSignUp',
        'as'=>'signup'
@@ -27,15 +26,20 @@ Route::group(['middleware' => ['web']],function(){
        'as'=>'account'
    ])->middleware('auth');
 
+    Route::get('/info',[
+        'uses'=>'UserController@getInfo',
+        'as'=>'info'
+    ])->middleware('auth');
+
 Route::post('/updateaccount', [
     'uses' => 'UserController@postSaveAccount',
-    'as' => 'account.save'
-]);
+    'as' => 'account.save',
+])->middleware('auth');
 
 Route::get('uploads/{filename}', [
     'uses' => 'UserController@getUserImage',
-    'as' => 'account.image'
-]);
+    'as' => 'account.image',
+])->middleware('auth');
   
 
    Route::get('/dashboard', [
@@ -55,15 +59,31 @@ Route::get('uploads/{filename}', [
 
    Route::post('/edit', [
     'uses' => 'PostController@postEditPost',
-    'as' => 'edit'
-]);
+    'as' => 'edit',
+   ])->middleware('auth');
 
    Route::post('/like', [
     'uses' => 'PostController@postLikePost',
-    'as' => 'like'
-]);
+    'as' => 'like',
+   ])->middleware('auth');
 
     Route::get('/online',[
     'uses'=>'PagesController@online',
-    'as'=>'online']);  
+    'as'=>'online',
+    ])->middleware('auth');
+
+    Route::get('/profile',[
+        'uses'=>'PagesController@profile',
+        'as'=>'profile',
+    ])->middleware('auth');
+
+    Route::get('/messages',[
+        'uses'=>'UserController@messages',
+        'as'=>'messages',
+    ])->middleware('auth');
+
+    Route::get('/users/{user_id}', [
+        'uses' => 'UserController@getUser',
+        'as' => 'users',
+    ])->middleware('auth');
 });
