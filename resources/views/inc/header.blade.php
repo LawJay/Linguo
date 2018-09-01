@@ -10,13 +10,13 @@ $user = Auth::user();
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      
+
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="material-icons">supervisor_account</i> Profile</a>
+        <a class="nav-link" href="{{route('profile')}}"><i class="material-icons">supervisor_account</i> Profile</a>
       </li>
-     
+
       <li class="nav-item">
-        <a class="nav-link disabled" href="#"><i class="material-icons">contact_support</i>Help</a>
+        <a class="nav-link" href="{{route('messages')}}"><i class="material-icons">mail</i></a>
       </li>
 
       <li class="nav-item dropdown">
@@ -31,13 +31,29 @@ $user = Auth::user();
         </div>
       </li>
     </ul>
-    
-      
+
+
+
+
+
+
+
+
     <a class="nav-link" href="{{route('account')}}"><i class="material-icons">perm_identity</i></a>
-    <a class="nav-link" href="{{route('logout')}}">Logout</a>
+<?php
+      if (Auth::check()) {
+          // The user is logged in...
+          ?>
+    <img height="50px" width="50px" src="{{ route('account.image', ['name' => $user->name . '-' . $user->id . '.jpg']) }}">
+    <a class="nav-link" href="{{route('logout')}}">Logout ({{$user->name}})</a>
+    <?php
+      }
+
+    ?>
+
 
 
   </div>
 </nav>
-	
+
 </header>

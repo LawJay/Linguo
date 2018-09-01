@@ -10,6 +10,8 @@
 	<div class="col-md-6 col-md-offset-3">
 		<header><h3> What's on your mind?</h3></header>
 
+
+
 		<form action="{{ route('post.create') }}" method="POST">
 			<div class="form-group">
 				<textarea  class="form-control" name="body" id="new-post" rows="10" placeholder="Start typing here..."></textarea>
@@ -18,6 +20,14 @@
 			<input type="hidden" name="_token" value="{{ Session::token() }}">
 		</form>
 	</div>
+    <div class="col-md-6 col-md-offset-3">
+        <h3>Activity</h3>
+        <ul>
+           <li>You are now friends with John</li>
+            <li>You have reached level 6 in french!</li>
+            <li>Your profile has had 36 views today.</li>
+        </ul>
+    </div>
 </section>
 <section class="row posts">
 	<div class="col-md-6 col-md-offset-3">
@@ -53,8 +63,8 @@
 
 	</div>
     <div class="col-md-6 col-md-offset-3">
-        <header><h3>Column Two</h3></header>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/He6UBkhAubg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <header><h3>Media</h3></header>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/d0yGdNEWdn0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
   <div class="container bootstrap snippet">
   <div class="header">
@@ -65,24 +75,25 @@
   </div>
 
 
-  <div class="jumbotron list-content">
+  <div class="jumbotron list-content" style="overflow: scroll; height: 250px;">
     <ul class="list-group">
       <li href="#" class="list-group-item title">
         Your Friends
       </li>
+        @foreach($users as $user)
       <li href="#" class="list-group-item text-left">
-        <img class="img-thumbnail" src="https://bootdey.com/img/Content/User_for_snippets.png">
+        <img class="img-thumbnail" href="#"  src="{{ route('account.image', ['name' => $user->name . '-' . $user->id . '.jpg']) }}">
         <label class="name">
-            Jamie Law<br>
+            {{$user->name}}<br>
         </label>
         <label class="pull-right">
-            <a  class="btn btn-success btn-xs glyphicon glyphicon-ok" href="#" title="View"></a>
+            <a  class="btn btn-success btn-xs glyphicon glyphicon-ok" href="{{ route('users', ['user_id' => $user->id]) }}" title="View"></a>
             <a  class="btn btn-danger  btn-xs glyphicon glyphicon-trash" href="#" title="Delete"></a>
             <a  class="btn btn-info  btn-xs glyphicon glyphicon glyphicon-comment" href="#" title="Send message"></a>
         </label>
         <div class="break"></div>
       </li>
-
+        @endforeach
 
 </div>
 </section>
