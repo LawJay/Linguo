@@ -9,4 +9,10 @@ class PagesController extends Controller
     public function online(){
         return view('pages.online');
     }
+
+    public function profile(){
+        return view('pages.profile');
+    }
+
+
 }

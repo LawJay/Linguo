@@ -1,5 +1,6 @@
 <?php 
 namespace App\Http\Controllers;
+use App\User;
 use Auth;
 use App\Like;
 use App\Post;
@@ -10,8 +11,9 @@ class PostController extends Controller
 {
 	public function getDashboard()
 	{
+	    $users = User::paginate(5);
 		$posts = Post::orderBy('created_at', 'desc')->get();
-		return view('dashboard', ['posts' => $posts]);
+		return view('dashboard', ['posts' => $posts])->with(['users' => $users]);
 	}
 
 	public function postCreatePost(Request $request)

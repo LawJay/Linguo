@@ -13,7 +13,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','bio','location','age','website'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -27,6 +27,10 @@ class User extends Authenticatable
     public function posts()
     {
     	return $this->hasMany('App\Post');
+    }
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
     }
 
     public function likes()

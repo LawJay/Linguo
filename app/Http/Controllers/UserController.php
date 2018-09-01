@@ -1,5 +1,6 @@
 <?php 
 namespace App\Http\Controllers;
+use App\Message;
 use Auth;
 use App\User;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+
 
 
 	public function postSignUp(Request $request)
@@ -66,7 +68,10 @@ class UserController extends Controller
            'name' => 'required|max:120'
         ]);
         $user = Auth::user();
-        
+        $user->location = $request['location'];
+        $user->bio = $request['bio'];
+        $user->age = $request['age'];
+        $user->website = $request['website'];
         $user->name = $request['name'];
         $user->update();
         $file = $request->file('image');
@@ -86,6 +91,23 @@ class UserController extends Controller
 		$file = Storage::disk('uploads')->get($filename);
 		return Storage::get($filename); 
 	}
+
+	public function getUser($user_id)
+    {
+        $user = User::find($user_id);
+        return view('pages.user')->with('user',$user);
+
+    }
+    public function messages(){
+        $user = Auth::user();
+        $messages = Message::where('receiver_id', '=', $user->id)->get();
+
+        return view('pages.messages', ['messages' => $messages]);
+    }
+
+    public function getInfo(){
+        return view('register.register');
+    }
 }
 
 
