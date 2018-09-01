@@ -2,11 +2,16 @@ body{
     font-family: 'Ubuntu', sans-serif;
 }
 
+
+
 .new-post{
 	padding: 16px 0;
 	border-bottom: 1px solid #ccc;
 }
+#profile{
+    background-color: #4bb1b1;
 
+}
 .new-post header,.posts header {
 	margin-bottom: 20px;
 }
@@ -14,11 +19,11 @@ body{
 .posts .post {
 	padding-left: 10px;
     border: solid #0F0F47;
-	border-left: 3px solid #a21b24
+	border-left: 3px solid #a21b24;
 	margin-bottom:30px;
     background-color: #5EC4EC;
     font-family: 'Ubuntu', sans-serif;
-    color: 0F0F47;
+    color: #0F0F47;
 }
 .post{
     
@@ -220,4 +225,6 @@ section .section-title {
 .name {
     color:#5bc0de;    
 }
-
+.footer {
+    position: absolute;
+}
